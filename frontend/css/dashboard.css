@@ -1,0 +1,27 @@
+/* Additional dashboard-specific tweaks are handled in style.css via
+   .stat-grid, .chart-grid, .stat-card, etc. This file is reserved for
+   any dashboard-only overrides. */
+
+.recent-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.recent-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 4px;
+  border-bottom: 1px solid var(--color-border);
+}
+.recent-row:last-child {
+  border-bottom: none;
+}
+.recent-row .recent-desc {
+  font-weight: 600;
+  font-size: 14px;
+}
+.recent-row .recent-meta {
+  font-size: 12px;
+  color: var(--color-text-faint);
+}

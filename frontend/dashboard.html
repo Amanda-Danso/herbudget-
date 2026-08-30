@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard — HerBudget</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/dashboard.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="app-header">
+      <div class="flex items-center gap-8">
+        <button class="hamburger" id="hamburger-btn" aria-label="Toggle navigation">&#9776;</button>
+        <div class="brand">💜 HerBudget</div>
+      </div>
+      <div class="header-right">
+        <span class="header-user" id="header-user-name"></span>
+        <button class="btn btn-secondary btn-sm" id="logout-btn">Logout</button>
+      </div>
+    </header>
+
+    <div class="app-body">
+      <aside class="sidebar">
+        <nav>
+          <a href="dashboard.html">🏠 Dashboard</a>
+          <a href="transactions.html">💳 Transactions</a>
+          <a href="categories.html">🏷️ Categories</a>
+          <a href="settings.html">⚙️ Settings</a>
+        </nav>
+      </aside>
+
+      <main class="main-content">
+        <h1>Dashboard</h1>
+        <p>A quick look at your money right now.</p>
+
+        <section class="stat-grid" id="stat-grid">
+          <div class="stat-card balance">
+            <div class="stat-label">Total Balance</div>
+            <div class="stat-value" id="stat-balance">GH₵0.00</div>
+          </div>
+          <div class="stat-card income">
+            <div class="stat-label">Income</div>
+            <div class="stat-value" id="stat-income">GH₵0.00</div>
+          </div>
+          <div class="stat-card expense">
+            <div class="stat-label">Expenses</div>
+            <div class="stat-value" id="stat-expense">GH₵0.00</div>
+          </div>
+        </section>
+
+        <section class="chart-grid">
+          <div class="card chart-card">
+            <h3>Expenses by Category</h3>
+            <div id="category-chart-wrap">
+              <canvas id="category-chart" height="220"></canvas>
+            </div>
+          </div>
+          <div class="card chart-card">
+            <h3>Income vs Expenses</h3>
+            <div id="income-expense-chart-wrap">
+              <canvas id="income-expense-chart" height="220"></canvas>
+            </div>
+          </div>
+        </section>
+
+        <section class="card chart-card" style="margin-bottom: 24px;">
+          <h3>Monthly Trend</h3>
+          <div id="monthly-chart-wrap">
+            <canvas id="monthly-chart" height="220"></canvas>
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="toolbar">
+            <h3 class="mt-0 mb-0">Recent Transactions</h3>
+            <a href="transactions.html" class="btn btn-secondary btn-sm">View All</a>
+          </div>
+          <div id="recent-transactions-wrap">
+            <div class="loading-text"><span class="spinner spinner-dark"></span> Loading transactions...</div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+# Backend
+backend/venv/
+backend/__pycache__/
+backend/**/__pycache__/
+backend/*.pyc
+backend/.env
+backend/herbudget.db
+backend/.pytest_cache/
+
+# General
+.DS_Store
+*.log

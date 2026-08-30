@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Settings — HerBudget</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="app-header">
+      <div class="flex items-center gap-8">
+        <button class="hamburger" id="hamburger-btn" aria-label="Toggle navigation">&#9776;</button>
+        <div class="brand">💜 HerBudget</div>
+      </div>
+      <div class="header-right">
+        <span class="header-user" id="header-user-name"></span>
+        <button class="btn btn-secondary btn-sm" id="logout-btn">Logout</button>
+      </div>
+    </header>
+
+    <div class="app-body">
+      <aside class="sidebar">
+        <nav>
+          <a href="dashboard.html">🏠 Dashboard</a>
+          <a href="transactions.html">💳 Transactions</a>
+          <a href="categories.html">🏷️ Categories</a>
+          <a href="settings.html">⚙️ Settings</a>
+        </nav>
+      </aside>
+
+      <main class="main-content" style="max-width: 560px;">
+        <h1>Settings</h1>
+        <p>Manage your profile.</p>
+
+        <div class="card" style="margin-bottom: 20px;">
+          <h3 style="margin-top:0;">Profile</h3>
+          <form id="profile-form" novalidate>
+            <div class="field">
+              <label for="profile-name">Name</label>
+              <input type="text" id="profile-name" required />
+            </div>
+            <div class="field">
+              <label for="profile-email">Email</label>
+              <input type="email" id="profile-email" disabled />
+              <div class="field-hint">Email cannot be changed in this MVP.</div>
+            </div>
+            <button type="submit" class="btn btn-primary" id="save-profile-btn">Save Changes</button>
+          </form>
+        </div>
+
+        <div class="card">
+          <h3 style="margin-top:0;">Change Password</h3>
+          <form id="password-form" novalidate>
+            <div class="field" id="field-current-password">
+              <label for="current-password">Current Password</label>
+              <input type="password" id="current-password" required />
+              <div class="field-error">Please enter your current password.</div>
+            </div>
+            <div class="field" id="field-new-password">
+              <label for="new-password">New Password</label>
+              <input type="password" id="new-password" required />
+              <div class="field-error">New password must be at least 8 characters.</div>
+            </div>
+            <button type="submit" class="btn btn-primary" id="save-password-btn">Update Password</button>
+          </form>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/settings.js"></script>
+</body>
+</html>

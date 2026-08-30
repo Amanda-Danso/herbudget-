@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Transactions — HerBudget</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="app-header">
+      <div class="flex items-center gap-8">
+        <button class="hamburger" id="hamburger-btn" aria-label="Toggle navigation">&#9776;</button>
+        <div class="brand">💜 HerBudget</div>
+      </div>
+      <div class="header-right">
+        <span class="header-user" id="header-user-name"></span>
+        <button class="btn btn-secondary btn-sm" id="logout-btn">Logout</button>
+      </div>
+    </header>
+
+    <div class="app-body">
+      <aside class="sidebar">
+        <nav>
+          <a href="dashboard.html">🏠 Dashboard</a>
+          <a href="transactions.html">💳 Transactions</a>
+          <a href="categories.html">🏷️ Categories</a>
+          <a href="settings.html">⚙️ Settings</a>
+        </nav>
+      </aside>
+
+      <main class="main-content">
+        <div class="toolbar">
+          <div>
+            <h1>Transactions</h1>
+            <p class="mb-0">Manage your income and expenses.</p>
+          </div>
+          <button class="btn btn-primary" id="add-transaction-btn">+ Add Transaction</button>
+        </div>
+
+        <div class="filters-bar">
+          <div class="field">
+            <label for="filter-type">Type</label>
+            <select id="filter-type">
+              <option value="">All</option>
+              <option value="income">Income</option>
+              <option value="expense">Expense</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="filter-category">Category</label>
+            <select id="filter-category">
+              <option value="">All categories</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="filter-start-date">From</label>
+            <input type="date" id="filter-start-date" />
+          </div>
+          <div class="field">
+            <label for="filter-end-date">To</label>
+            <input type="date" id="filter-end-date" />
+          </div>
+          <div class="field" style="min-width: 200px;">
+            <label for="filter-search">Search description</label>
+            <input type="text" id="filter-search" placeholder="e.g. groceries" />
+          </div>
+          <button class="btn btn-secondary" id="clear-filters-btn">Clear Filters</button>
+        </div>
+
+        <div class="card">
+          <div id="transactions-table-wrap">
+            <div class="loading-text"><span class="spinner spinner-dark"></span> Loading transactions...</div>
+          </div>
+
+          <div class="toolbar" id="pagination-wrap" style="margin-top: 16px; margin-bottom: 0; display: none;">
+            <button class="btn btn-secondary btn-sm" id="prev-page-btn">&larr; Previous</button>
+            <span class="text-muted" id="pagination-label"></span>
+            <button class="btn btn-secondary btn-sm" id="next-page-btn">Next &rarr;</button>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Add / Edit Transaction Modal -->
+  <div class="modal-overlay" id="transaction-modal-overlay">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 class="mt-0 mb-0" id="transaction-modal-title">Add Transaction</h3>
+        <button class="modal-close" id="close-transaction-modal">&times;</button>
+      </div>
+
+      <form id="transaction-form" novalidate>
+        <input type="hidden" id="transaction-id" />
+
+        <div class="field">
+          <label>Transaction Type</label>
+          <div class="type-toggle" id="type-toggle">
+            <button type="button" data-type="income">Income</button>
+            <button type="button" data-type="expense" class="active">Expense</button>
+          </div>
+        </div>
+
+        <div class="field" id="field-amount">
+          <label for="amount">Amount (GH₵)</label>
+          <input type="number" id="amount" step="0.01" min="0.01" required />
+          <div class="field-error">Amount must be greater than 0.</div>
+        </div>
+
+        <div class="field" id="field-category">
+          <label for="category">Category</label>
+          <select id="category" required></select>
+          <div class="field-error">Please choose a category.</div>
+        </div>
+
+        <div class="field">
+          <label for="description">Description</label>
+          <input type="text" id="description" placeholder="e.g. Groceries" maxlength="500" />
+        </div>
+
+        <div class="field" id="field-date">
+          <label for="transaction-date">Date</label>
+          <input type="date" id="transaction-date" required />
+          <div class="field-error">Please select a date.</div>
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" class="btn btn-secondary" id="cancel-transaction-btn">Cancel</button>
+          <button type="submit" class="btn btn-primary" id="save-transaction-btn">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/transactions.js"></script>
+</body>
+</html>

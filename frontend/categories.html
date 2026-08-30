@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Categories — HerBudget</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="app-header">
+      <div class="flex items-center gap-8">
+        <button class="hamburger" id="hamburger-btn" aria-label="Toggle navigation">&#9776;</button>
+        <div class="brand">💜 HerBudget</div>
+      </div>
+      <div class="header-right">
+        <span class="header-user" id="header-user-name"></span>
+        <button class="btn btn-secondary btn-sm" id="logout-btn">Logout</button>
+      </div>
+    </header>
+
+    <div class="app-body">
+      <aside class="sidebar">
+        <nav>
+          <a href="dashboard.html">🏠 Dashboard</a>
+          <a href="transactions.html">💳 Transactions</a>
+          <a href="categories.html">🏷️ Categories</a>
+          <a href="settings.html">⚙️ Settings</a>
+        </nav>
+      </aside>
+
+      <main class="main-content">
+        <div class="toolbar">
+          <div>
+            <h1>Categories</h1>
+            <p class="mb-0">Organize your income and expenses.</p>
+          </div>
+          <button class="btn btn-primary" id="add-category-btn">+ Add Category</button>
+        </div>
+
+        <div class="card">
+          <div id="categories-table-wrap">
+            <div class="loading-text"><span class="spinner spinner-dark"></span> Loading categories...</div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Add / Edit Category Modal -->
+  <div class="modal-overlay" id="category-modal-overlay">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 class="mt-0 mb-0" id="category-modal-title">Add Category</h3>
+        <button class="modal-close" id="close-category-modal">&times;</button>
+      </div>
+
+      <form id="category-form" novalidate>
+        <input type="hidden" id="category-id" />
+
+        <div class="field" id="field-category-name">
+          <label for="category-name">Category Name</label>
+          <input type="text" id="category-name" maxlength="80" required />
+          <div class="field-error">Please enter a category name.</div>
+        </div>
+
+        <div class="field">
+          <label>Type</label>
+          <div class="type-toggle" id="category-type-toggle">
+            <button type="button" data-type="income">Income</button>
+            <button type="button" data-type="expense" class="active">Expense</button>
+          </div>
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" class="btn btn-secondary" id="cancel-category-btn">Cancel</button>
+          <button type="submit" class="btn btn-primary" id="save-category-btn">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/categories.js"></script>
+</body>
+</html>

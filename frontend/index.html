@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HerBudget — Take control of your money</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/auth.css" />
+</head>
+<body>
+  <header class="landing-nav">
+    <div class="brand">💜 HerBudget</div>
+    <nav class="nav-actions">
+      <a href="login.html" class="btn btn-secondary btn-sm">Login</a>
+      <a href="register.html" class="btn btn-primary btn-sm">Get Started</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Your money. Your goals. Your budget.</h1>
+      <p>
+        HerBudget makes it simple to track your income, expenses, and
+        spending habits in one place.
+      </p>
+      <div class="hero-actions">
+        <a href="register.html" class="btn btn-primary">Start Budgeting</a>
+        <a href="login.html" class="btn btn-secondary">Login</a>
+      </div>
+    </section>
+
+    <section class="features">
+      <div class="feature-card">
+        <div class="feature-icon">💰</div>
+        <h4>Track Income</h4>
+        <p>Log every source of income so nothing slips through the cracks.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🧾</div>
+        <h4>Track Expenses</h4>
+        <p>Record spending by category to see exactly where money goes.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📊</div>
+        <h4>Understand Spending</h4>
+        <p>Visual charts break down your habits at a glance.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">⚖️</div>
+        <h4>Monitor Your Balance</h4>
+        <p>Always know your real-time balance across income and expenses.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="landing-footer">
+    &copy; 2026 HerBudget. Built as a personal finance MVP.
+  </footer>
+
+  <script src="js/api.js"></script>
+  <script>
+    redirectIfLoggedIn();
+  </script>
+</body>
+</html>
