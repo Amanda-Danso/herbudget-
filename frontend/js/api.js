@@ -4,7 +4,7 @@
  * and handling errors (including 401 redirects to login).
  */
 
-const API_BASE_URL = "http://127.0.0.1:8000";
+const API_BASE_URL = "https://herbudget.onrender.com";
 
 function getToken() {
   return localStorage.getItem("herbudget_token");
